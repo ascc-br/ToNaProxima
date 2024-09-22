@@ -47,7 +47,7 @@ function updateNameTable() {
 }
 
 // Função para adicionar um novo nome na lista
-document.getElementById('addButton').addEventListener('click', function() {
+function addNames () {
     const nameInput = document.getElementById('nameInput');
     const name = nameInput.value.trim();
 
@@ -55,6 +55,13 @@ document.getElementById('addButton').addEventListener('click', function() {
         namesList.push(name);  // Adiciona o nome na lista
         nameInput.value = '';  // Limpa o input
         updateNameTable();     // Atualiza a tabela
+    }
+};
+//função de clique ou apertar enter
+document.getElementById('addButton').addEventListener('click', addNames);
+document.getElementById("nameInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") { // Verifica se a tecla pressionada é "Enter"
+        addNames(); // Chama a função como se fosse um clique no botão
     }
 });
 
