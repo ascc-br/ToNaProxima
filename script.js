@@ -1,5 +1,6 @@
 // Lista de nomes
 let namesList = [];
+let team_size = 4;
 
 // Atualiza a tabela com a lista de nomes
 function updateNameTable() {
@@ -83,8 +84,8 @@ function toggleScreens() {
 
 // Função para gerar times
 document.getElementById('generateTeamsButton').addEventListener('click', function() {
-    if (namesList.length < 8) {
-        alert('Você precisa de pelo menos 8 nomes para gerar times!');
+    if (namesList.length < team_size*2) {
+        alert('Você precisa de pelo menos'+team_size*2+'nomes para gerar times!');
     } else {
         const team1List = document.getElementById('team1List');
         const team2List = document.getElementById('team2List');
@@ -92,9 +93,9 @@ document.getElementById('generateTeamsButton').addEventListener('click', functio
         team1List.innerHTML = '';
         team2List.innerHTML = '';
 
-        // Divide os 8 primeiros nomes em 2 times
-        const team1 = namesList.slice(0, 4);
-        const team2 = namesList.slice(4, 8);
+        // Divide os primeiros nomes em 2 times
+        const team1 = namesList.slice(0, team_size);
+        const team2 = namesList.slice(team_size, team_size*2);
 
         // Exibe os nomes nos times
         team1.forEach(name => {
@@ -115,7 +116,7 @@ document.getElementById('generateTeamsButton').addEventListener('click', functio
 
 // Função para jogar (volta para a primeira tela e coloca os nomes no final da lista)
 document.getElementById('playButton').addEventListener('click', function() {
-    const movedNames = namesList.splice(0, 8); // Remove os primeiros 8 nomes
+    const movedNames = namesList.splice(0, team_size*2); // Remove os nomes dos que jogaram
     namesList.push(...movedNames); // Adiciona os nomes removidos ao final
 
     // Atualiza a tabela na primeira tela
