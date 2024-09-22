@@ -48,13 +48,29 @@ th, td {
   text-align: center;
 }
 
-button.action-btn {
-  padding: 5px;
-  margin: 2px;
+.actions-cell {
+    display: flex; /* Usar flexbox para alinhar os botões */
+    justify-content: space-between; /* Espaço entre os botões */
+    align-items: center; /* Centraliza verticalmente os botões */
 }
 
-button.up, button.down {
-  font-size: 12px;
+button.action-btn {
+  padding: 5px;
+}
+
+button.down {
+  width: 4ch;
+}
+
+button.up {
+  width: 4ch;
+  margin-left: 20%;
+}
+
+button.del {
+  margin-bottom: 15%;
+  margin-right: auto;
+
 }
 
 /* Estilo do botão grande */

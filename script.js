@@ -14,6 +14,8 @@ function updateNameTable() {
         const nameCell = row.insertCell(0);
         const orderCell = row.insertCell(1);
         const actionsCell = row.insertCell(2);
+        actionsCell.classList.add('actions-cell'); // Adiciona a classe para aplicar o CSS
+
 
         nameCell.textContent = name;
         orderCell.textContent = order++;
@@ -21,7 +23,7 @@ function updateNameTable() {
         // Botão para deletar o nome
         const delButton = document.createElement('button');
         delButton.textContent = 'del';
-        delButton.classList.add('action-btn');
+        delButton.classList.add('action-btn', 'del');
         delButton.addEventListener('click', () => {
             namesList.splice(index, 1);  // Remove o nome da lista
             updateNameTable();           // Atualiza a tabela
@@ -29,13 +31,13 @@ function updateNameTable() {
 
         // Botão para mover o nome para cima
         const upButton = document.createElement('button');
-        upButton.textContent = '↑';
+        upButton.textContent = '▲';
         upButton.classList.add('action-btn', 'up');
         upButton.addEventListener('click', () => moveRow(index, -1));
 
         // Botão para mover o nome para baixo
         const downButton = document.createElement('button');
-        downButton.textContent = '↓';
+        downButton.textContent = '▼';
         downButton.classList.add('action-btn', 'down');
         downButton.addEventListener('click', () => moveRow(index, 1));
 
