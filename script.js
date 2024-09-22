@@ -58,6 +58,18 @@ document.getElementById('addButton').addEventListener('click', function() {
     }
 });
 
+// Função para mudar tamanho das equipes
+document.getElementById('team_size_button').addEventListener('click', function() {
+    const teamSizeInput = document.getElementById('teamSizeBox');
+    const newTeamSize = parseInt(teamSizeInput.value);
+
+    if (!isNaN(newTeamSize) && newTeamSize > 0) {
+        team_size = newTeamSize;
+        document.getElementById('teamSizeBox');
+        updateNameTable();
+    }
+});
+
 // Função para mover um nome na lista (cima ou baixo)
 function moveRow(index, direction) {
     const newIndex = index + direction;
@@ -84,8 +96,8 @@ function toggleScreens() {
 
 // Função para gerar times
 document.getElementById('generateTeamsButton').addEventListener('click', function() {
-    if (namesList.length < team_size*2) {
-        alert('Você precisa de pelo menos'+team_size*2+'nomes para gerar times!');
+    if (namesList.length < team_size * 2) {
+        alert('Você precisa de pelo menos ' + team_size * 2 + ' nomes para gerar times!');
     } else {
         const team1List = document.getElementById('team1List');
         const team2List = document.getElementById('team2List');
@@ -95,7 +107,7 @@ document.getElementById('generateTeamsButton').addEventListener('click', functio
 
         // Divide os primeiros nomes em 2 times
         const team1 = namesList.slice(0, team_size);
-        const team2 = namesList.slice(team_size, team_size*2);
+        const team2 = namesList.slice(team_size, team_size * 2);
 
         // Exibe os nomes nos times
         team1.forEach(name => {
@@ -116,7 +128,7 @@ document.getElementById('generateTeamsButton').addEventListener('click', functio
 
 // Função para jogar (volta para a primeira tela e coloca os nomes no final da lista)
 document.getElementById('playButton').addEventListener('click', function() {
-    const movedNames = namesList.splice(0, team_size*2); // Remove os nomes dos que jogaram
+    const movedNames = namesList.splice(0, team_size * 2); // Remove os nomes dos que jogaram
     namesList.push(...movedNames); // Adiciona os nomes removidos ao final
 
     // Atualiza a tabela na primeira tela
