@@ -101,11 +101,28 @@ function toggleScreens() {
     screen2.style.display = screen2.style.display === 'none' ? 'block' : 'none';
 }
 
+// Função para copiar a lista para o clipboard
+function controlceh () {
+    // Obter os nomes da lista
+    const team1Names = Array.from(document.querySelectorAll('#team1List li'))
+                            .map(li => li.textContent)
+                            .join('\n'); // Juntar os nomes em uma string separada por novas linhas
+
+    // Copiar os nomes para o clipboard
+    navigator.clipboard.writeText(team1Names).then(() => {
+        alert('Nomes copiados para o clipboard!');
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
+    });
+}
+
 // Função para gerar times
 document.getElementById('generateTeamsButton').addEventListener('click', function() {
     if (namesList.length < team_size * 2) {
         alert('Você precisa de pelo menos ' + team_size * 2 + ' nomes para gerar times!');
     } else {
+        controlceh();
+        
         const team1List = document.getElementById('team1List');
         const team2List = document.getElementById('team2List');
 
