@@ -2,9 +2,19 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.title-image {
+  text-align: center; /* Centraliza a imagem */
+  margin-top: 5px; /* Espaço acima da imagem */
+  margin-bottom: 0px; /* Espaço abaixo da imagem */
+}
+.title-image img {
+  max-width: 85%; /* Ajusta a largura da imagem ao tamanho do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
 .container {
   width: 300px;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 #nameInput {
@@ -15,6 +25,7 @@ body {
 #teamSizeBox {
   width: 2ch;
   padding: 5px;
+  text-align: center;
 }
 
 #addButton {
@@ -78,4 +89,9 @@ ul {
 .versus {
   font-size: 24px;
   font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
 }
