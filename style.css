@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 300px;
+  margin: 20px auto;
+}
+
+#nameInput {
+  width: 150px;
+  padding: 5px;
+}
+
+#addButton {
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+button.action-btn {
+  padding: 5px;
+  margin: 2px;
+}
+
+button.up, button.down {
+  font-size: 12px;
+}
+
+/* Estilo do botão grande */
+.big-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.big-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo da Segunda Tela */
+.team-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.versus {
+  font-size: 24px;
+  font-weight: bold;
+}

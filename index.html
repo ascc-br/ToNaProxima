@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Nomes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Primeira Tela -->
+    <div class="container" id="screen1">
+        <label for="nameInput">Digite um nome:</label>
+        <input type="text" id="nameInput" placeholder="">
+        <button id="addButton">Add</button>
+
+        <table id="nameTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Ordem</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os itens serão adicionados aqui dinamicamente -->
+            </tbody>
+        </table>
+
+        <!-- Botão Gerar Times -->
+        <button id="generateTeamsButton" class="big-button">Gerar Times!</button>
+    </div>
+
+    <!-- Segunda Tela -->
+    <div class="container" id="screen2" style="display: none;">
+        <div class="team-container">
+            <ul id="team1List"></ul>
+            <div class="versus">Vs</div>
+            <ul id="team2List"></ul>
+        </div>
+
+        <button id="playButton" class="big-button">JOGAR</button>
+        <button id="backButton" class="big-button">VOLTAR</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
