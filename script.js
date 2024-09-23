@@ -1,10 +1,15 @@
 // Lista de nomes
 let namesList = [];
 let team_size = 4;
+var NaProxima = 0;
 
 // Atualiza a tabela com a lista de nomes
 function updateNameTable() {
     const tableBody = document.getElementById('nameTable').getElementsByTagName('tbody')[0];
+    if (namesList.length > 0)
+        document.getElementById("nameTable").classList.remove("hidden");
+    else
+        document.getElementById("nameTable").classList.add("hidden");
     tableBody.innerHTML = ''; // Limpa a tabela
 
     let order = 1; // Reinicia a contagem da ordem
@@ -54,11 +59,18 @@ function addNames () {
     const name = nameInput.value.trim();
 
     if (name) {
-        namesList.push(name);  // Adiciona o nome na lista
+        if (document.getElementById("BttnToNaPr").classList.contains("glowing")) {
+            namesList.splice(NaProxima, 0, name); // Insere o nome na posição NaProxima
+            NaProxima++;
+        } else {
+            namesList.push(name);  // Adiciona o nome na lista 
+        }
+
         nameInput.value = '';  // Limpa o input
         updateNameTable();     // Atualiza a tabela
     }
 };
+
 //função de clique ou apertar enter
 document.getElementById('addButton').addEventListener('click', addNames);
 document.getElementById("nameInput").addEventListener("keydown", function(event) {
@@ -66,6 +78,12 @@ document.getElementById("nameInput").addEventListener("keydown", function(event)
         addNames(); // Chama a função como se fosse um clique no botão
     }
 });
+
+// Adiciona evento de clique ao botão
+document.getElementById("BttnToNaPr").addEventListener("click", function() {
+    this.classList.toggle("glowing"); // Alterna a classe 'glowing' ao clicar
+});
+
 
 // Função para mudar tamanho das equipes
 document.getElementById('team_size_button').addEventListener('click', function() {
@@ -121,7 +139,7 @@ function controlceh () {
 // Função para gerar times
 document.getElementById('generateTeamsButton').addEventListener('click', function() {
     if (namesList.length < team_size * 2) {
-        alert('Você precisa de pelo menos ' + team_size * 2 + ' nomes para gerar times!');
+        alert('São necessários ao menos ' + team_size * 2 + ' nomes para gerar times!');
     } else {
         controlceh();
         
@@ -158,6 +176,7 @@ document.getElementById('playButton').addEventListener('click', function() {
     namesList.push(...movedNames); // Adiciona os nomes removidos ao final
 
     // Atualiza a tabela na primeira tela
+    NaProxima = 0;
     updateNameTable();
     toggleScreens(); // Volta para a tela inicial
 });

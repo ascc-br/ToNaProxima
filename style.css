@@ -30,7 +30,46 @@ body {
 
 #addButton {
   padding: 5px 5px;
-  margin-left: 5px;
+  font-size: 10px;
+}
+
+/* Estilo inicial do botão - cinza e apagado */
+.btn {
+    background-color: #b0b0b0;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.3s ease; /* Suaviza a transição */
+}
+
+/* Estilo do botão ao ser clicado - brilhante com gradiente animado */
+.btn.glowing {
+    background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0);
+    background-size: 600% 600%;
+    animation: glowing 4s ease infinite; /* Animação de degradê */
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 30px rgba(255, 140, 0, 0.5), 0 0 40px rgba(64, 224, 208, 0.5);
+}
+
+/* Animação de movimento do degradê */
+@keyframes glowing {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.hidden {
+  display: none;
 }
 
 table {
