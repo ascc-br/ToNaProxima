@@ -123,14 +123,8 @@ function toggleScreens() {
 
 // Função para copiar a lista para o clipboard
 function controlceh () {
-    // Obter os nomes da lista
-    const team1Names = Array.from(document.querySelectorAll('#team1List li'))
-                            .map(li => li.textContent)
-                            .join('\n'); // Juntar os nomes em uma string separada por novas linhas
-
-    // Copiar os nomes para o clipboard
-    navigator.clipboard.writeText(team1Names).then(() => {
-        alert('Nomes copiados para o clipboard!');
+    navigator.clipboard.writeText(namesList).then(() => {
+        alert('Lista de nomes copiada para o clipboard!');
     }).catch(err => {
         console.error('Erro ao copiar: ', err);
     });
