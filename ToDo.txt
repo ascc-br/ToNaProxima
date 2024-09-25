@@ -1,7 +1,22 @@
 - Aceitar vetor no addnames
 - importar csv
 - trocar lugar de pessoas entre times
-- não permitir entrada prioritária antes do primeiro jogo
+    // Exibe os nomes nos times
+    team1.forEach(name => {
+        const li = document.createElement('li');
+        const radio = document.createElement('input');
+
+        radio.type = 'radio'; // Define o tipo como radio
+        radio.name = 'team1radio'; // Todos os radio buttons devem ter o mesmo nome para que funcionem como grupo
+        radio.value = name; // O valor do radio button é o nome do jogador
+
+        //Adiciona o radio button e o nome ao li
+        li.appendChild(radio);
+        li.appendChild(document.createTextNode(name));
+
+        // Adiciona o li à lista de times
+        team1List.appendChild(li);
+    });
 - centralizar tabela quando nomes são mt grandes
 - Salvar lista nos cookies
 X- corrigir bug do clipboard
