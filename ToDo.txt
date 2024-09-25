@@ -1,0 +1,10 @@
+- Aceitar vetor no addnames
+- importar csv
+- trocar lugar de pessoas entre times
+- não permitir entrada prioritária antes do primeiro jogo
+- centralizar tabela quando nomes são mt grandes
+- Salvar lista nos cookies
+X- corrigir bug do clipboard
+X- mudar cores
+X- arredondar botões
+X- switch p/ add com prioridade
