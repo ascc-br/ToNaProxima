@@ -1,15 +1,16 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #81D8D0;
+  background-color: #81d8d0;
 }
 
-input[type="text"], textarea {
-  border-radius: 5px; 
-  background-color: #0ABAB5;
+input[type="text"],
+textarea {
+  border-radius: 5px;
+  background-color: #0abab5;
 }
 
 button {
-  border-radius: 10px; 
+  border-radius: 10px;
   background-color: #139fec;
 }
 
@@ -46,38 +47,38 @@ button {
 
 /* Estilo inicial do botão - cinza e apagado */
 .btn {
-    background-color: #b0b0b0;
-    color: white;
-    padding: 5px 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 10px;
-    transition: all 0.3s ease; /* Suaviza a transição */
+  background-color: #b0b0b0;
+  color: white;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.3s ease; /* Suaviza a transição */
 }
 
 /* Estilo do botão ao ser clicado - brilhante com gradiente animado */
 .btn.glowing {
-    background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0);
-    background-size: 600% 600%;
-    animation: glowing 4s ease infinite; /* Animação de degradê */
-    color: white;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 30px rgba(255, 140, 0, 0.5), 0 0 40px rgba(64, 224, 208, 0.5);
+  background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0);
+  background-size: 600% 600%;
+  animation: glowing 4s ease infinite; /* Animação de degradê */
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 30px rgba(255, 140, 0, 0.5),
+    0 0 40px rgba(64, 224, 208, 0.5);
 }
 
 /* Animação de movimento do degradê */
 @keyframes glowing {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
 
 .hidden {
   display: none;
@@ -89,19 +90,22 @@ table {
   border-collapse: collapse;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   text-align: center;
 }
 
 .actions-cell {
-    display: flex; /* Usar flexbox para alinhar os botões */
-    justify-content: space-between; /* Espaço entre os botões */
-    align-items: center; /* Centraliza verticalmente os botões */
+  display: flex; /* Usar flexbox para alinhar os botões */
+  justify-content: space-between; /* Espaço entre os botões */
+  align-items: center; /* Centraliza verticalmente os botões */
 }
 
 button.action-btn {
@@ -120,12 +124,11 @@ button.up {
 button.del {
   margin-bottom: 15%;
   margin-right: auto;
-
 }
 
 /* Estilo do botão grande */
 .big-button {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   padding: 15px;
   margin-top: 10px;
@@ -158,6 +161,6 @@ ul {
 }
 
 .button-container {
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
 }

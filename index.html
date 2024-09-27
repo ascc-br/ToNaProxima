@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToNaProxima</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="title-image">
-        <img src="tittle_art.png" alt="Título do Site">
+      <img src="tittle_art.png" alt="Título do Site" />
     </div>
-    
+
     <!-- Primeira Tela -->
     <div class="container" id="screen1">
-        <label for="nameInput">Nome:</label>
-        <input type="text" id="nameInput" placeholder="">
-        <button id="addButton">Add</button>
-        <button id="BttnToNaPr" class="btn" alt="Insere nomes com prioridade na lista">#ToNaProxima</button>
+      <label for="nameInput">Nome:</label>
+      <input type="text" id="nameInput" placeholder="" />
+      <button id="addButton">Add</button>
+      <button
+        id="BttnToNaPr"
+        class="btn"
+        alt="Insere nomes com prioridade na lista"
+      >
+        #ToNaProxima
+      </button>
 
+      <table id="nameTable" class="hidden">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Ordem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Os itens serão adicionados aqui dinamicamente -->
+        </tbody>
+      </table>
 
-        <table id="nameTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Ordem</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Os itens serão adicionados aqui dinamicamente -->
-            </tbody>
-        </table>
+      <!-- Botão Gerar Times -->
+      <button id="generateTeamsButton" class="big-button">Gerar Times!</button>
 
-        <!-- Botão Gerar Times -->
-        <button id="generateTeamsButton" class="big-button">Gerar Times!</button>
-
-        <!--alterar tamanho do time -->
-        <div class= "team-container">
-            <label for="teamSizeBox">Tamanho de cada time:</label>
-            <input type="text" id="teamSizeBox" placeholder="4">
-            <button id="team_size_button">Alterar</button>
-        </div>
+      <!--alterar tamanho do time -->
+      <div class="team-container">
+        <label for="teamSizeBox">Tamanho de cada time:</label>
+        <input type="text" id="teamSizeBox" placeholder="4" />
+        <button id="team_size_button">Alterar</button>
+      </div>
     </div>
 
     <!-- Segunda Tela -->
-    <div class="container" id="screen2" style="display: none;">
-        <div class="team-container">
-            <ul id="team1List"></ul>
-            <div class="versus">Vs</div>
-            <ul id="team2List"></ul>
-        </div>
+    <div class="container" id="screen2" style="display: none">
+      <div class="button-container">
+        <button id="swapButton">⬐Trocar de time⬎</button>
+      </div>
 
-        <button id="playButton" class="big-button">JOGAR</button>
-        <div class="button-container">
-            <button id="backButton">Cancelar</button>
-        </div>
+      <div class="team-container">
+        <ul id="team1List"></ul>
+        <div class="versus">Vs</div>
+        <ul id="team2List"></ul>
+      </div>
+
+      <button id="playButton" class="big-button">JOGAR</button>
+      <div class="button-container">
+        <button id="backButton">Cancelar</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
