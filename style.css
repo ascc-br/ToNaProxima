@@ -34,6 +34,16 @@ button {
   max-width: 480px;
 }
 
+/* Estilo para as linhas do time 1 */
+.team1 {
+  background-color: #f2dede; /* Cor de fundo para o Time 1 */
+}
+
+/* Estilo para as linhas do time 2 */
+.team2 {
+  background-color: #d9edf7; /* Cor de fundo para o Time 2 */
+}
+
 /* Centraliza a tabela no container */
 #nameTable {
   margin: 5px; /* Centraliza a tabela horizontalmente */

@@ -45,22 +45,36 @@ class PlayersManager {
   // Atualiza a tabela com a lista de nomes
   updateNameTable() {
     const tableBody = document.getElementById("nameTable").getElementsByTagName("tbody")[0];
-    if (userList.length > 0) document.getElementById("nameTable").classList.remove("hidden");
-    else document.getElementById("nameTable").classList.add("hidden");
-    tableBody.innerHTML = ""; //limpa a tabela
 
-    let order = 1; //reinicia a ordem
+    if (userList.length > 0) {
+      document.getElementById("nameTable").classList.remove("hidden");
+    } else {
+      document.getElementById("nameTable").classList.add("hidden");
+    }
+
+    tableBody.innerHTML = ""; // Limpa a tabela antes de inserir novos elementos
+
+    let order = 1;
     userList.forEach((user, index) => {
       const row = tableBody.insertRow();
+
+      // Define a cor com base no time
+      if (index < usersManager.team_size) {
+        row.classList.add("team1"); // Primeira metade para o Time 1
+      } else if (index < usersManager.team_size * 2) {
+        row.classList.add("team2"); // Segunda metade para o Time 2
+      }
 
       const nameCell = row.insertCell(0);
       const orderCell = row.insertCell(1);
       const actionsCell = row.insertCell(2);
-      actionsCell.classList.add("actions-cell"); //adiciona a classe para aplicar o CSS
+
+      actionsCell.classList.add("actions-cell"); // Aplica a classe para estilização
 
       nameCell.textContent = user.name;
       orderCell.textContent = order++;
 
+      // Botão de deletar
       const delButton = document.createElement("button");
       delButton.textContent = "del";
       delButton.classList.add("action-btn", "del");
@@ -69,6 +83,7 @@ class PlayersManager {
         this.updateNameTable();
       });
 
+      // Botões de mover para cima e para baixo
       const upButton = document.createElement("button");
       upButton.textContent = "▲";
       upButton.classList.add("action-btn", "up");
