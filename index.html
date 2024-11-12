@@ -11,9 +11,19 @@
       <img src="tittle_art.png" alt="Título do Site" />
     </div>
 
+    <!-- Pop-up de confirmação -->
+    <div id="confirmationPopup" class="popup hidden">
+      <div class="popup-content">
+        <p>Tem certeza que deseja apagar todos os nomes da lista?</p>
+        <button id="confirmClearButton">Sim</button>
+        <button id="cancelClearButton">Não</button>
+      </div>
+    </div>
+
     <!-- Primeira Tela -->
     <div class="container" id="screen1">
       <div id="inputBox">
+        <button id="clearButton" class="clear-button">Apagar Lista</button>
         <label for="nameInput">Nome:</label>
         <input type="text" id="nameInput" placeholder="" />
         <button id="addButton">Add</button>

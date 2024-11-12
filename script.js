@@ -23,6 +23,44 @@ function loadUserList() {
   }
 }
 
+// Salva o team_size no localStorage
+function saveTeamSize() {
+  localStorage.setItem("teamSize", usersManager.team_size);
+}
+
+// Carrega o team_size do localStorage ao iniciar a página
+function loadTeamSize() {
+  const savedTeamSize = localStorage.getItem("teamSize");
+  if (savedTeamSize) {
+    usersManager.team_size = parseInt(savedTeamSize, 10);
+    document.getElementById("teamSizeBox").value = savedTeamSize; // Atualiza o campo de input
+  }
+}
+
+// Seleciona o botão de apagar, o pop-up e os botões de confirmação/cancelamento
+const clearButton = document.getElementById("clearButton");
+const confirmationPopup = document.getElementById("confirmationPopup");
+const confirmClearButton = document.getElementById("confirmClearButton");
+const cancelClearButton = document.getElementById("cancelClearButton");
+
+// Função para abrir o pop-up
+clearButton.addEventListener("click", () => {
+  confirmationPopup.classList.remove("hidden"); // Mostra o pop-up
+});
+
+// Função para apagar a lista
+confirmClearButton.addEventListener("click", () => {
+  userList.length = 0; // Limpa o array
+  usersManager.updateNameTable(); // Atualiza a tabela para refletir a lista vazia
+  confirmationPopup.classList.add("hidden"); // Fecha o pop-up
+  saveUserList(); // Salva a lista vazia no localStorage
+});
+
+// Função para cancelar e fechar o pop-up
+cancelClearButton.addEventListener("click", () => {
+  confirmationPopup.classList.add("hidden"); // Fecha o pop-up
+});
+
 class PlayersManager {
   constructor() {
     this.team_size = 4;
@@ -255,6 +293,7 @@ document.getElementById("team_size_button").addEventListener("click", function (
   if (!isNaN(newTeamSize) && newTeamSize > 0) {
     usersManager.team_size = newTeamSize;
     usersManager.updateNameTable(); //verificar se é realmente necessário chamar essa função
+    saveTeamSize(); // Salva o tamanho do time no localStorage
   }
 });
 
@@ -299,4 +338,7 @@ document.getElementById("swapButton").addEventListener("click", function () {
 });
 
 // Carrega o userList ao iniciar a página
-window.onload = loadUserList;
+window.onload = function () {
+  loadTeamSize();
+  loadUserList();
+};
