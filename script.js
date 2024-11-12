@@ -81,18 +81,25 @@ class PlayersManager {
       delButton.addEventListener("click", () => {
         userList.splice(index, 1);
         this.updateNameTable();
+        saveUserList();
       });
 
       // Botões de mover para cima e para baixo
       const upButton = document.createElement("button");
       upButton.textContent = "▲";
       upButton.classList.add("action-btn", "up");
-      upButton.addEventListener("click", () => this.moveRow(index, -1));
+      upButton.addEventListener("click", () => {
+        this.moveRow(index, -1);
+        saveUserList();
+      });
 
       const downButton = document.createElement("button");
       downButton.textContent = "▼";
       downButton.classList.add("action-btn", "down");
-      downButton.addEventListener("click", () => this.moveRow(index, 1));
+      downButton.addEventListener("click", () => {
+        this.moveRow(index, 1);
+        saveUserList();
+      });
 
       actionsCell.appendChild(delButton);
       actionsCell.appendChild(upButton);
@@ -168,6 +175,8 @@ class TeamManager {
     // Atualiza a tabela na primeira tela
     usersManager.NaProxima = 0;
     usersManager.updateNameTable();
+
+    saveUserList();
   }
 
   // Método do botão trocar de time

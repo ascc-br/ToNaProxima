@@ -33,7 +33,7 @@ button {
   text-align: center; /* Centraliza o texto dentro do container */
   min-width: 40ch;
   max-width: 500px;
-  padding-bottom: 70px;
+  padding-bottom: 100px;
 }
 
 /* Estilo para as linhas do time 1 */
@@ -180,7 +180,7 @@ button.del {
 /* Estilo para fixar o botão "Gerar Times" no rodapé */
 .big-button {
   position: fixed;
-  bottom: 10px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   padding: 15px;
