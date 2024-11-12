@@ -249,18 +249,6 @@ document.getElementById("team_size_button").addEventListener("click", function (
   }
 });
 
-// Função para copiar a lista para o clipboard
-function controlceh() {
-  navigator.clipboard
-    .writeText(usersManager.getNamesList())
-    .then(() => {
-      alert("Lista de nomes copiada para o clipboard!");
-    })
-    .catch((err) => {
-      console.error("Erro ao copiar: ", err);
-    });
-}
-
 /** -------------> FUNÇÕES DA SEGUNDA TELA <------------- */
 
 // Instancia a classe TeamManager
@@ -273,7 +261,6 @@ document.getElementById("generateTeamsButton").addEventListener("click", functio
   if (userList.length < team_size * 2) {
     alert("São necessários ao menos " + team_size * 2 + " nomes para gerar times!");
   } else {
-    controlceh();
     teamManager.fillAndUpdateLists(usersManager.getNamesList(), team_size);
     toggleScreens(); // Muda para a segunda tela
   }

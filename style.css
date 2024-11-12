@@ -31,7 +31,8 @@ button {
   justify-content: center; /* Centraliza o container verticalmente */
   margin: 0 auto; /* Centraliza o container horizontalmente */
   text-align: center; /* Centraliza o texto dentro do container */
-  max-width: 480px;
+  min-width: 40ch;
+  max-width: 500px;
   padding-bottom: 70px;
 }
 
@@ -46,7 +47,7 @@ button {
 }
 
 .teamList {
-  max-width: 200px; /* Limite máximo de largura, ajuste conforme necessário */
+  max-width: 15ch; /* Limite máximo de largura, ajuste conforme necessário */
   overflow: hidden; /* Esconde texto que ultrapassa o limite */
   text-overflow: ellipsis; /* Adiciona "..." ao final do texto se exceder a largura */
   white-space: nowrap; /* Evita quebra de linha */
@@ -61,7 +62,7 @@ button {
 
 /* Limita o tamanho da coluna Nome */
 #nameTable td:nth-child(1) {
-  max-width: 240px; /* Limite máximo de largura, ajuste conforme necessário */
+  max-width: 20ch; /* Limite máximo de largura, ajuste conforme necessário */
   overflow: hidden; /* Esconde texto que ultrapassa o limite */
   text-overflow: ellipsis; /* Adiciona "..." ao final do texto se exceder a largura */
   white-space: nowrap; /* Evita quebra de linha */
@@ -183,7 +184,8 @@ button.del {
   left: 50%;
   transform: translateX(-50%);
   padding: 15px;
-  min-width: 450px;
+  min-width: 90%;
+  max-width: 95%;
   font-size: 18px;
   background-color: #007bff;
   color: white;
