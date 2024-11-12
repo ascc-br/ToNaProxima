@@ -32,6 +32,7 @@ button {
   margin: 0 auto; /* Centraliza o container horizontalmente */
   text-align: center; /* Centraliza o texto dentro do container */
   max-width: 480px;
+  padding-bottom: 70px;
 }
 
 /* Estilo para as linhas do time 1 */
@@ -42,6 +43,13 @@ button {
 /* Estilo para as linhas do time 2 */
 .team2 {
   background-color: #d9edf7; /* Cor de fundo para o Time 2 */
+}
+
+.teamList {
+  max-width: 200px; /* Limite máximo de largura, ajuste conforme necessário */
+  overflow: hidden; /* Esconde texto que ultrapassa o limite */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto se exceder a largura */
+  white-space: nowrap; /* Evita quebra de linha */
 }
 
 /* Centraliza a tabela no container */
@@ -172,19 +180,35 @@ button.del {
 .big-button {
   position: fixed;
   bottom: 10px;
-  padding: 15px 155px;
-  font-size: 21px;
-  background-color: #007bff; /* Escolha uma cor de destaque */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  min-width: 450px;
+  font-size: 18px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  white-space: nowrap; /* Evita quebra de linha */
 }
 
 .big-button:hover {
   background-color: #0056b3;
+}
+
+#playButton {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 /* Estilo da Segunda Tela */
@@ -192,7 +216,6 @@ button.del {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 70px;
   margin-top: 5px;
 }
 
