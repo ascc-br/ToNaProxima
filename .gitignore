@@ -1,6 +1,7 @@
 node_modules/
 .replit
-.vsconde
+.vscode
 *.txt
 .cache
 testes.js
+script_OLD.js

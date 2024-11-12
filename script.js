@@ -8,6 +8,21 @@ class User {
 
 var userList = [];
 
+// Salva o userList no localStorage
+function saveUserList() {
+  const userListString = JSON.stringify(userList);
+  localStorage.setItem("userList", userListString);
+}
+
+// Carrega o userList do localStorage
+function loadUserList() {
+  const savedList = localStorage.getItem("userList");
+  if (savedList) {
+    userList = JSON.parse(savedList).map((user) => new User(user.name));
+    usersManager.updateNameTable();
+  }
+}
+
 class PlayersManager {
   constructor() {
     this.team_size = 4;
@@ -24,15 +39,13 @@ class PlayersManager {
       userList.push(user);
     }
     this.updateNameTable();
+    saveUserList(); // Salva automaticamente após adicionar o usuário
   }
 
   // Atualiza a tabela com a lista de nomes
   updateNameTable() {
-    const tableBody = document
-      .getElementById("nameTable")
-      .getElementsByTagName("tbody")[0];
-    if (userList.length > 0)
-      document.getElementById("nameTable").classList.remove("hidden");
+    const tableBody = document.getElementById("nameTable").getElementsByTagName("tbody")[0];
+    if (userList.length > 0) document.getElementById("nameTable").classList.remove("hidden");
     else document.getElementById("nameTable").classList.add("hidden");
     tableBody.innerHTML = ""; //limpa a tabela
 
@@ -163,6 +176,7 @@ class TeamManager {
     this.fillAndUpdateLists([...this.team1, ...this.team2], this.team1.length);
   }
 }
+
 // Função para alternar entre as telas
 function toggleScreens() {
   const screen1 = document.getElementById("screen1");
@@ -198,14 +212,12 @@ function addNames() {
 
 //função de clique ou apertar enter
 document.getElementById("addButton").addEventListener("click", addNames);
-document
-  .getElementById("nameInput")
-  .addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      // Verifica se a tecla pressionada é "Enter"
-      addNames(); // Chama a função como se fosse um clique no botão
-    }
-  });
+document.getElementById("nameInput").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    // Verifica se a tecla pressionada é "Enter"
+    addNames(); // Chama a função como se fosse um clique no botão
+  }
+});
 
 //Função ToNaProxima (muda a prioridade dos nomes inseridos)
 document.getElementById("BttnToNaPr").addEventListener("click", function () {
@@ -213,16 +225,14 @@ document.getElementById("BttnToNaPr").addEventListener("click", function () {
 });
 
 // Função para mudar tamanho das equipes
-document
-  .getElementById("team_size_button")
-  .addEventListener("click", function () {
-    const teamSizeInput = document.getElementById("teamSizeBox");
-    const newTeamSize = parseInt(teamSizeInput.value);
-    if (!isNaN(newTeamSize) && newTeamSize > 0) {
-      usersManager.team_size = newTeamSize;
-      usersManager.updateNameTable(); //verificar se é realmente necessário chamar essa função
-    }
-  });
+document.getElementById("team_size_button").addEventListener("click", function () {
+  const teamSizeInput = document.getElementById("teamSizeBox");
+  const newTeamSize = parseInt(teamSizeInput.value);
+  if (!isNaN(newTeamSize) && newTeamSize > 0) {
+    usersManager.team_size = newTeamSize;
+    usersManager.updateNameTable(); //verificar se é realmente necessário chamar essa função
+  }
+});
 
 // Função para copiar a lista para o clipboard
 function controlceh() {
@@ -242,21 +252,17 @@ function controlceh() {
 const teamManager = new TeamManager();
 
 // Listener para gerar times
-document
-  .getElementById("generateTeamsButton")
-  .addEventListener("click", function () {
-    const team_size = usersManager.team_size;
+document.getElementById("generateTeamsButton").addEventListener("click", function () {
+  const team_size = usersManager.team_size;
 
-    if (userList.length < team_size * 2) {
-      alert(
-        "São necessários ao menos " + team_size * 2 + " nomes para gerar times!"
-      );
-    } else {
-      controlceh();
-      teamManager.fillAndUpdateLists(usersManager.getNamesList(), team_size);
-      toggleScreens(); // Muda para a segunda tela
-    }
-  });
+  if (userList.length < team_size * 2) {
+    alert("São necessários ao menos " + team_size * 2 + " nomes para gerar times!");
+  } else {
+    controlceh();
+    teamManager.fillAndUpdateLists(usersManager.getNamesList(), team_size);
+    toggleScreens(); // Muda para a segunda tela
+  }
+});
 
 // Listener para jogar
 document.getElementById("playButton").addEventListener("click", function () {
@@ -280,3 +286,6 @@ document.getElementById("swapButton").addEventListener("click", function () {
     alert("Selecione um jogador de cada time para trocar!");
   }
 });
+
+// Carrega o userList ao iniciar a página
+window.onload = loadUserList;

@@ -1,9 +1,12 @@
-- Aceitar vetor no addnames
+Coisas p fazer no app:
 - importar csv
-- trocar lugar de pessoas entre times
 - centralizar tabela quando nomes são mt grandes
 - Salvar lista nos cookies
+- colocar ícone no site
+- handcap e balanceamento de times
 X- corrigir bug do clipboard
 X- mudar cores
 X- arredondar botões
 X- switch p/ add com prioridade
+X- trocar lugar de pessoas entre times
+X- Aceitar vetor no addnames
